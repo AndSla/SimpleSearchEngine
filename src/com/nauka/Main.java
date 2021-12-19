@@ -1,18 +1,28 @@
 package com.nauka;
 
+import java.util.HashSet;
+
 public class Main {
 
     public static void main(String[] args) {
 
         UserInterface ui = new UserInterface();
-        SearchEngine se = new SearchEngine();
+        Database db = new Database();
 
-        String[] firstLineWords = ui.getFirstLineWords();
-        String secondLineWord = ui.getSecondLineWord();
+        int n = ui.getNumberOfDataLines();
 
-        int result = se.find(firstLineWords, secondLineWord);
+        for (int i = 0; i < n; i++) {
+            String person = ui.getPersonString();
+            db.addPerson(person);
+        }
 
-        ui.printSearchEngineResult(result);
+        int m = ui.getNumberOfSearchQueries();
+
+        for (int i = 0; i < m; i++) {
+            String data = ui.getSearchQuery();
+            HashSet<String> foundedPersons = db.find(data);
+            ui.printSearchEngineResult(foundedPersons);
+        }
 
     }
 
