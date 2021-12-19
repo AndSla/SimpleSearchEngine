@@ -1,17 +1,18 @@
 package com.nauka;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
 
-    private final HashSet<String> persons = new HashSet<>();
+    private final List<String> persons = new ArrayList<>();
 
     void addPerson(String person) {
         persons.add(person);
     }
 
-    HashSet<String> find(String data) {
-        HashSet<String> foundPersons = new HashSet<>();
+    List<String> find(String data) {
+        List<String> foundPersons = new ArrayList<>();
         for (String person : persons) {
             if (person.toLowerCase().contains(data.toLowerCase())) {
                 foundPersons.add(person);

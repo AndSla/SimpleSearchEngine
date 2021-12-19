@@ -1,6 +1,6 @@
 package com.nauka;
 
-import java.util.HashSet;
+import java.util.List;
 
 public class Main {
 
@@ -20,7 +20,7 @@ public class Main {
 
         for (int i = 0; i < m; i++) {
             String data = ui.getSearchQuery();
-            HashSet<String> foundedPersons = db.find(data);
+            List<String> foundedPersons = db.find(data);
             ui.printSearchEngineResult(foundedPersons);
         }
 

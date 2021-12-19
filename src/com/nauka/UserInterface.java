@@ -1,6 +1,6 @@
 package com.nauka;
 
-import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -42,7 +42,7 @@ public class UserInterface {
         return sc.nextLine();
     }
 
-    void printSearchEngineResult(HashSet<String> foundedPersons) {
+    void printSearchEngineResult(List<String> foundedPersons) {
         if (foundedPersons.isEmpty()) {
             System.out.println("No matching people found.");
         } else {
