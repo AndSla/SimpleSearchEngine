@@ -21,4 +21,8 @@ public class Database {
         return foundPersons;
     }
 
+    public List<String> getPersons() {
+        return persons;
+    }
+
 }

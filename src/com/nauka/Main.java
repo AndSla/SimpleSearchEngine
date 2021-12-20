@@ -16,14 +16,26 @@ public class Main {
             db.addPerson(person);
         }
 
-        int m = ui.getNumberOfSearchQueries();
+        boolean keepOnRunning = true;
 
-        for (int i = 0; i < m; i++) {
-            String data = ui.getSearchQuery();
-            List<String> foundedPersons = db.find(data);
-            ui.printSearchEngineResult(foundedPersons);
+        while (keepOnRunning) {
+            int menuItem = ui.getMainMenuItem();
+
+            switch (menuItem) {
+                case 1:
+                    String data = ui.getSearchQuery();
+                    List<String> foundedPeople = db.find(data);
+                    ui.printSearchEngineResult(foundedPeople);
+                    break;
+                case 2:
+                    ui.printAllPeople(db.getPersons());
+                    break;
+                case 0:
+                    System.out.println("\nBye!");
+                    keepOnRunning = false;
+            }
+
         }
-
     }
 
 }
