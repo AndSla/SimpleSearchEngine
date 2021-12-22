@@ -1,14 +1,21 @@
 package com.nauka;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
 
-    private final List<String> persons = new ArrayList<>();
+    private List<String> persons = new ArrayList<>();
 
-    void addPerson(String person) {
-        persons.add(person);
+    void loadDatabaseFileToMemory(File databaseFile) {
+        try {
+            persons = Files.readAllLines(databaseFile.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     List<String> find(String data) {

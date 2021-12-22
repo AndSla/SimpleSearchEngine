@@ -1,24 +1,18 @@
 package com.nauka;
 
+import java.io.File;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-
         UserInterface ui = new UserInterface();
         Database db = new Database();
 
-        int n = ui.getNumberOfDataLines();
+        File databaseFile = ui.getDatabaseFile(args[0], args[1]);
+        db.loadDatabaseFileToMemory(databaseFile);
 
-        for (int i = 0; i < n; i++) {
-            String person = ui.getPersonString();
-            db.addPerson(person);
-        }
-
-        boolean keepOnRunning = true;
-
-        while (keepOnRunning) {
+        while (ui.isSupposeToRun()) {
             int menuItem = ui.getMainMenuItem();
 
             switch (menuItem) {
@@ -31,8 +25,8 @@ public class Main {
                     ui.printAllPeople(db.getPersons());
                     break;
                 case 0:
-                    System.out.println("\nBye!");
-                    keepOnRunning = false;
+                    ui.showExitMessage();
+                    ui.setSupposeToRun(false);
             }
 
         }

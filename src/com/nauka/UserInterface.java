@@ -1,34 +1,39 @@
 package com.nauka;
 
+import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
 
     private final Scanner sc = new Scanner(System.in);
-    private boolean showMsg = true;
+    private boolean supposeToRun = true;
 
-    int getNumberOfDataLines() {
-        int number;
-        System.out.println("Enter the number of people:");
-        while (true) {
-            System.out.print("> ");
-            String input = sc.nextLine();
-            if (input.matches("\\d")){
-                number = Integer.parseInt(input);
-                break;
-            }
-        }
-        return number;
+    public boolean isSupposeToRun() {
+        return supposeToRun;
     }
 
-    String getPersonString() {
-        if (showMsg) {
-            System.out.println("Enter all people:");
-            showMsg = false;
+    public void setSupposeToRun(boolean supposeToRun) {
+        this.supposeToRun = supposeToRun;
+    }
+
+    File getDatabaseFile(String param1, String param2) {
+        if (param1.equals("--data")) {
+
+            File file = new File(param2);
+            if (file.exists()){
+                return file;
+            } else {
+                System.out.println("There is no such file!");
+            }
+
+        } else {
+            System.out.println("Wrong parameter! Type --data <filename>");
         }
-        System.out.print("> ");
-        return sc.nextLine();
+
+        supposeToRun = false;
+        return null;
+
     }
 
     String getSearchQuery() {
@@ -75,6 +80,10 @@ public class UserInterface {
 
         return chosenMenuItem;
 
+    }
+
+    void showExitMessage(){
+        System.out.println("\nBye!");
     }
 
 }
