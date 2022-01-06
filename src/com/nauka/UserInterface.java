@@ -21,7 +21,7 @@ public class UserInterface {
         if (param1.equals("--data")) {
 
             File file = new File(param2);
-            if (file.exists()){
+            if (file.exists()) {
                 return file;
             } else {
                 System.out.println("There is no such file!");
@@ -46,7 +46,7 @@ public class UserInterface {
         if (foundedPersons.isEmpty()) {
             System.out.println("No matching people found.");
         } else {
-            System.out.println("Found people:");
+            System.out.println(foundedPersons.size() + " persons found:");
             for (String person : foundedPersons) {
                 System.out.println(person);
             }
@@ -82,7 +82,7 @@ public class UserInterface {
 
     }
 
-    void showExitMessage(){
+    void showExitMessage() {
         System.out.println("\nBye!");
     }
 
