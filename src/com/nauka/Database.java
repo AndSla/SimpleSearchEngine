@@ -48,20 +48,6 @@ public class Database {
 
     }
 
-    List<String> find(String data) {
-        data = data.toLowerCase();
-        Set<Integer> positions;
-        List<String> foundPersons = new ArrayList<>();
-
-        if ((positions = invertedIndex.get(data)) != null) {
-            for (Integer position : positions) {
-                foundPersons.add(persons.get(position));
-            }
-        }
-
-        return foundPersons;
-    }
-
     public List<String> getPersons() {
         return persons;
     }
