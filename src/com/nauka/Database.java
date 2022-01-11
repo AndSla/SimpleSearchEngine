@@ -66,4 +66,8 @@ public class Database {
         return persons;
     }
 
+    public Map<String, Set<Integer>> getInvertedIndex() {
+        return invertedIndex;
+    }
+
 }

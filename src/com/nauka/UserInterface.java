@@ -82,6 +82,25 @@ public class UserInterface {
 
     }
 
+    String getStrategy() {
+        String chosenStrategy;
+
+        while (true) {
+            System.out.println("\nSelect a matching strategy: ALL, ANY, NONE");
+            System.out.print("> ");
+            String input = sc.nextLine();
+            if (input.toLowerCase().matches("all|any|none")) {
+                chosenStrategy = input.toLowerCase();
+                break;
+            } else {
+                System.out.println("\nIncorrect option! Try again.");
+            }
+        }
+
+        return chosenStrategy;
+
+    }
+
     void showExitMessage() {
         System.out.println("\nBye!");
     }
