@@ -44,9 +44,9 @@ public class UserInterface {
 
     void printSearchEngineResult(List<String> foundedPersons) {
         if (foundedPersons.isEmpty()) {
-            System.out.println("No matching people found.");
+            System.out.println("\nNo matching people found.");
         } else {
-            System.out.println(foundedPersons.size() + " persons found:");
+            System.out.println("\n" + foundedPersons.size() + " persons found:");
             for (String person : foundedPersons) {
                 System.out.println(person);
             }
